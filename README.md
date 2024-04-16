@@ -1,2 +1,2 @@
- # EscolaAngelo
+# Escola Ângelo
 Curso de Python
