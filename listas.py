@@ -10,4 +10,3 @@ for nome in listaNomes:
     print(nome)
     
 
-    #teste
