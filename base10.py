@@ -54,7 +54,7 @@ lista1 = [12, 8, 5, 7]
 lista2 = [7, 4, 3, 9]
 lista3 = []
 i = 0
-for elemento in listal:
+for elemento in lista:
   soma = lista1[i] + lista2[i]
   lista3.append(soma)
   i += 1
