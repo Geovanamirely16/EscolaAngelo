@@ -2,20 +2,36 @@
 # O usuário deverá dizer quantos números quer jogar, de 6 até 10
 # Imprima o resultado solicitado.
 
-import random
+from random import randint as rd
 
-def gerar_jogo_mega_sena(qtd_numeros):
-    if qtd_numeros < 6 or qtd_numeros > 10:
-        return "Você deve escolher entre 6 e 10 números."
-    
-    jogo = random.sample(range(1, 61), qtd_numeros)
-    jogo.sort()
-    return jogo
+def megasena(quantidade = 6):
+  numeros = set()
+  while True:
+    numero = rd(1, 60)
+    numeros.add(numero)
+    if len(numeros) == quantidade:
+      return tuple(numeros)
 
-# Exemplo de uso:
-try:
-    qtd = int(input("Quantos números você quer jogar? (de 6 até 10): "))
-    resultado = gerar_jogo_mega_sena(qtd)
-    print("Seu jogo da Mega-Sena:", resultado)
-except ValueError:
-    print("Por favor, insira um número válido.")
+def jogar():
+  while True:
+    aposta = input("Quanto números quer joga? Escolha entre 6 a 10: ")
+    if aposta.isnumeric():
+      aposta = int(aposta)
+      if aposta < 6 or aposta > 10:
+        print("Quantida inválida, escolha novamente")
+      else:
+        return megasena(aposta)
+    else:
+      return megasena(6)
+
+def main():
+  jogo = jogar()
+
+  print("\nOs números aletórios solicitados são: ", end='')
+  ordenado = sorted(jogo)
+  for n in ordenado:
+    print(n, end=', ')
+
+  print("\b\b. Boa sorte!\n")
+
+main()
